@@ -6,44 +6,43 @@
             var options = $.extend({}, defaults, params);
 
             $("html").bind("click", function(e) {
-                $(".jetselect ul").addClass("closed");
-                var js = $(e.target).parents(".jetselect");
-                if (js.size() && js.find("ul").hasClass("closed")) {
-                    $(js).find("ul").removeClass("closed");
+                $(".jetselect .jetselectdropdown").addClass("closed");
+                var js = $(e.target).closest(".jetselect");
+                if (js.size() && js.find(".jetselectdropdown").hasClass("closed")) {
+                    $(js).find(".jetselectdropdown").removeClass("closed");
                 }
             });
 
             return this.each(function() {
-                var c = $(this).attr("class");
-                c = (c === undefined ? "jetselect" : "jetselect " + c);
-                var el = $(this).wrap("<div class='" + c + "'/>").parent();
+                var c = "jetselect";
+                if ($(this).attr("class") !== undefined) {
+                    c += " " + $(this).attr("class");
+                }
+                var el = $(this).wrap("<div class='" + c + "'/>").parent(),
+                    dd = el.append("<div class='jetselectvalue'></div><ul class='jetselectdropdown closed'></ul>")
+                            .find(".jetselectdropdown");
 
-                $(el).append("<div class='value'></div><ul class='closed'></ul>");
-
-                var l = $(el).find("ul");
-                $.each($(el).find("select option"), function(i, val) {
+                $.each(el.find("select option"), function(i, val) {
                     var html = $(val).attr("label");
 
                     if (html === undefined || html === "") {
                         html = $(val).text();
                     }
+                    dd.append($("<li/>").html(html));
+                });
+                el.closest(".jetselect").jetSelect('select', el.find("select option:selected").index());
 
-                    $(l).append($("<li/>").html(html).bind("click", function() {
-                        $(this).jetSelect('select', i + 1);
-                        l.addClass("closed");
-                        return false;
-                    }));
-
-                    if ($(val).is(":selected")) {
-                        $(this).jetSelect('select', i + 1);
-                    }
+                $(".jetselect > ul > li").bind("click", function() {
+                    el.closest(".jetselect").jetSelect('select', $(this).index());
+                    $(this).parent().addClass("closed");
+                    return false;
                 });
 
-                $(el).find(".value").click(function() {
-                    if (l.hasClass("closed")) {
-                        l.removeClass("closed");
+                el.find(".jetselectvalue").click(function() {
+                    if (dd.hasClass("closed")) {
+                        dd.removeClass("closed");
                     } else {
-                        l.addClass("closed");
+                        dd.addClass("closed");
                         return false;
                     }
                 });
@@ -51,22 +50,14 @@
             });
         },
         select: function(index) {
-            var el = this.closest('.jetselect');
-
-            $(el).find("li").removeClass("selected");
-
-            var li = $(el).find("li:nth-child(" + index + ")");
-
-            li.addClass("selected");
-            $(el).find(".value").html(li.html());
-
-            $(el).find("option").removeAttr("selected");
-
-            $(el).find("option:nth-child(" + index + ")").attr("selected", "selected");
-
-            $(el).find("select").trigger('change');
+            var el = this,
+                li = el.find("li").removeClass("selected").eq(index).addClass("selected");
+            el.find(".jetselectvalue").html(li.html());
+            el.find("option").removeAttr("selected");
+            el.find("option").eq(index).attr("selected", "selected");
+            el.find("select").trigger('change');
         }
-    }
+    };
     $.fn.jetSelect = function(method){
         if ( methods[method] ) {
             return methods[ method ].apply(this, Array.prototype.slice.call( arguments, 1));

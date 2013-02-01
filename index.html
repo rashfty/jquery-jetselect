@@ -7,15 +7,54 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
   <link rel="stylesheet" href="stylesheets/stylesheet.css" media="screen"/>
-  <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
+  <link rel="stylesheet" href="jetselect.css"/>
   <script type="text/javascript" src="jquery.min.js"></script>
   <script type="text/javascript" src="jquery.jetselect.js"></script>
   <script type="text/javascript" src="javascripts/script.js"></script>
   <script>
     $(function() {
-      $("select").jetSelect();
+      $("select.example").jetSelect();
+      $("select.example").jetSelect('select', 3);
     });
   </script>
+  <style>
+  * {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .jetselect {
+    border: 1px solid #CCC;
+    background: #EFEFEF;
+    width: 150px;
+  }
+  .jetselect:after {
+    content: "\2B0D";
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    z-index: 1;
+    color: #777;
+  }
+  .jetselectvalue {
+    
+    padding: 3px 5px;
+  }
+  .jetselectdropdown {
+    background: #F5F5F5;
+    border: inherit;
+    border-width: 0 1px 1px 1px;
+    /* coz border */
+    margin: -1px;
+  }
+  .jetselect .jetselectdropdown li {
+    
+    padding: 3px 5px;
+  }
+  .jetselect .jetselectdropdown li:hover {
+    background: #E0E0E0;
+  }
+  </style>
   <title>Jquery-jetselect</title>
   <meta name="description" content="">
 
@@ -43,7 +82,15 @@
         <article class="markdown-body">
           <h3>jetSelect</h3>
           <p>
+            <h4>Before</h4>
             <select>
+              <option>Lorem</option>
+              <option>ipsum</option>
+              <option>dolor</option>
+            </select>
+            <br/><br/>
+            <h4>After</h4>
+            <select class='example'>
               <option>Lorem</option>
               <option>ipsum</option>
               <option>dolor</option>
