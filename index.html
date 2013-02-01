@@ -1,0 +1,121 @@
+<!doctype html>
+<!-- The Time Machine GitHub pages theme was designed and developed by Jon Rohan, on Feb 7, 2012. -->
+<!-- Follow him for fun. http://twitter.com/jonrohan. Tail his code on http://github.com/jonrohan -->
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <link rel="stylesheet" href="stylesheets/stylesheet.css" media="screen"/>
+  <link rel="stylesheet" href="jetselect.css"/>
+  <script type="text/javascript" src="jquery.min.js"></script>
+  <script type="text/javascript" src="jquery.jetselect.js"></script>
+  <script type="text/javascript" src="javascripts/script.js"></script>
+  <script>
+    $(function() {
+      $("select.example").jetSelect();
+      $("select.example").jetSelect('select', 3);
+    });
+  </script>
+  <style>
+  * {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .jetselect {
+    border: 1px solid #CCC;
+    background: #EFEFEF;
+    width: 150px;
+  }
+  .jetselect:after {
+    content: "\2B0D";
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    z-index: 1;
+    color: #777;
+  }
+  .jetselectvalue {
+    
+    padding: 3px 5px;
+  }
+  .jetselectdropdown {
+    background: #F5F5F5;
+    border: inherit;
+    border-width: 0 1px 1px 1px;
+    /* coz border */
+    margin: -1px;
+  }
+  .jetselect .jetselectdropdown li {
+    
+    padding: 3px 5px;
+  }
+  .jetselect .jetselectdropdown li:hover {
+    background: #E0E0E0;
+  }
+  </style>
+  <title>Jquery-jetselect</title>
+  <meta name="description" content="">
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <header>
+      <h1 class="title">Jquery-jetselect</h1>
+    </header>
+    <div id="container">
+      <p class="tagline"></p>
+      <div id="main" role="main">
+        <div class="download-bar">
+        <div class="inner">
+          <a href="https://github.com/rashfty/jquery-jetselect/tarball/master" class="download-button tar"><span>Download</span></a>
+          <a href="https://github.com/rashfty/jquery-jetselect/zipball/master" class="download-button zip"><span>Download</span></a>
+          <a href="https://github.com/rashfty/jquery-jetselect" class="code">View Jquery-jetselect on GitHub</a>
+        </div>
+        <span class="blc"></span><span class="trc"></span>
+        </div>
+        <article class="markdown-body">
+          <h3>jetSelect</h3>
+          <p>
+            <h4>Before</h4>
+            <select>
+              <option>Lorem</option>
+              <option>ipsum</option>
+              <option>dolor</option>
+            </select>
+            <br/><br/>
+            <h4>After</h4>
+            <select class='example'>
+              <option>Lorem</option>
+              <option>ipsum</option>
+              <option>dolor</option>
+            </select>
+          </p>
+        </article>
+      </div>
+    </div>
+    <footer>
+      <div class="owner">
+      <p><a href="https://github.com/rashfty" class="avatar"><img src="https://secure.gravatar.com/avatar/c593b13bc39ab58082ef62564dfc4e56?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" width="48" height="48"/></a> <a href="https://github.com/rashfty">rashfty</a> maintains <a href="https://github.com/rashfty/jquery-jetselect">Jquery-jetselect</a></p>
+
+
+      </div>
+      <div class="creds">
+        <small>This page generated using <a href="https://pages.github.com/">GitHub Pages</a><br/>theme by <a href="http://twitter.com/jonrohan/">Jon Rohan</a></small>
+      </div>
+    </footer>
+  </div>
+  <div class="current-section">
+    <a href="#top">Scroll to top</a>
+    <a href="https://github.com/rashfty/jquery-jetselect/tarball/master" class="tar">tar</a><a href="https://github.com/rashfty/jquery-jetselect/zipball/master" class="zip">zip</a><a href="" class="code">source code</a>
+    <p class="name"></p>
+  </div>
+
+  
+</body>
+</html>

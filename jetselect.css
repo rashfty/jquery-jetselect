@@ -1,0 +1,25 @@
+.jetselect {
+    position: relative;
+	display: inline-block;
+}
+.jetselect select {
+	display: none;
+}
+.jetselect .jetselectvalue {
+	position: relative;
+	cursor: pointer;
+    z-index: 2;
+}
+.jetselect .jetselectdropdown {
+	position: absolute;
+	left: 0;
+	right: 0;
+    z-index: 2;
+    top: 100%;
+}
+.jetselect .jetselectdropdown.closed {
+	display: none;
+}
+.jetselect .jetselectdropdown li {
+	cursor: default;
+}
